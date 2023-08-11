@@ -13,7 +13,7 @@ import (
 
 	"sort"
 
-	"github.com/raff/walkngo/printer"
+	"../printer"
 )
 
 // GoWalker is the context for the AST visitor

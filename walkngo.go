@@ -11,8 +11,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/raff/walkngo/printer"
-	"github.com/raff/walkngo/walker"
+	"./printer"
+	"./walker"
 )
 
 type Walker struct {
