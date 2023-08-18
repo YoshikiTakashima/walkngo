@@ -20,8 +20,19 @@ s/.*std::map<.* \(.*\) = make(\(.*\));/\2 \1;/g
 s/return append(\(.*\),\(.*\));/\1.push_back(\2); return \1;/g
 s/ = append(\(.*\),\(.*\));/.push_back(\2);/g
 
+# re-write vector iteration
+s/for (auto std::ignore,/for (int/g
+s/std::vector<byte>(s)/std::vector<char>(s.begin(), s.end())/g
+s/sort::Sort(sort::Reverse(sort::IntSlice(\(.*\))));/std::sort(\1.begin(), \1.end(), std::greater<>());/g
+
+# re-write map access
+s/std::tie(\(.*\), \(.*\)) = std::make_tuple(\(.*\), \(.*\));/\
+\1 = \3;\
+\2 = \4;\
+/g
+
+
 # Re-write prelude includes
 s/#include <go.h>/#include <vector>\
 #include <tuple>\
 #include <map>/g
-
